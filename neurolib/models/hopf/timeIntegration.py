@@ -203,15 +203,15 @@ def timeIntegration_njit_elementwise(
 
             # Stuart-Landau / Hopf Oscillator
             x_rhs = (
-                (a - xs[no, i - 1] ** 2 - ys[no, i - 1] ** 2) * xs[no, i - 1]
-                - w * ys[no, i - 1]
+                (a[no] - xs[no, i - 1] ** 2 - ys[no, i - 1] ** 2) * xs[no, i - 1]
+                - w[no] * ys[no, i - 1]
                 + xs_input_d[no]  # input from other nodes
                 + x_ou[no]  # ou noise
                 + x_ext[no]  # external input
             )
             y_rhs = (
-                (a - xs[no, i - 1] ** 2 - ys[no, i - 1] ** 2) * ys[no, i - 1]
-                + w * xs[no, i - 1]
+                (a[no] - xs[no, i - 1] ** 2 - ys[no, i - 1] ** 2) * ys[no, i - 1]
+                + w[no] * xs[no, i - 1]
                 + ys_input_d[no]  # input from other nodes
                 + y_ou[no]  # ou noise
                 + y_ext[no]  # external input
